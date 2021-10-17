@@ -148,10 +148,6 @@ function internprompt() {
 
 function buildteam(){
 
-
-
-
-
     const data = `
     <!doctype html>
     <html lang="en">
@@ -189,4 +185,62 @@ function buildteam(){
 
 }
 
+function genrateteam(){
+// function for manager build up
+const generateManager = (manager) => {
+    return `
+        <div class="card team">
+        <div class="card-header">
+            <h2 class="card-title">${manager.getName()}</h2>
+            <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">ID: ${manager.getId()}</li>
+                <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
+            </ul>
+        </div>
+    </div>
+        `;
+  };
 
+  const generateEngineer=(enginner)=>{
+      return `
+      <div class="card team">
+      <div class="card-header">
+          <h2 class="card-title">${engineer.getName()}</h2>
+          <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${engineer.getRole()}</h3>
+      </div>
+      <div class="card-body">
+          <ul class="list-group">
+              <li class="list-group-item">ID: ${engineer.getId()}</li>
+              <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+              <li class="list-group-item">Office number: ${enginner.getOfficeNumber()}</li>
+          </ul>
+      </div>
+  </div>
+      
+      `
+  }
+
+
+  const generateEngineer=(intern)=>{
+    return `
+    <div class="card team">
+    <div class="card-header">
+        <h2 class="card-title">${intern.getName()}</h2>
+        <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${intern.getRole()}</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item">ID: ${intern.getId()}</li>
+            <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${engineer.getEmail()}</a></li>
+            <li class="list-group-item">Office number: ${intern.getSchool()}</li>
+        </ul>
+    </div>
+</div>
+    
+    `
+}
+}
