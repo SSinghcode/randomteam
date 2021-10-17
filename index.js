@@ -163,7 +163,7 @@ function buildteam(){
       </head>
       <body>
       
-     <div></div>
+     <div>${generateteam(team)}</div>
     
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -185,7 +185,7 @@ function buildteam(){
 
 }
 
-function genrateteam(){
+function generateteam(team){
 // function for manager build up
 const generateManager = (manager) => {
     return `
