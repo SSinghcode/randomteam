@@ -50,7 +50,7 @@ function optionprompt() {
                 type: "list",
                 name: "team",
                 message: "WWhich type of team member would you like to add?",
-                choices: ["Enginner", "intern", "i dont want to have team member"],
+                choices: ["Engineer", "Intern", "i dont want to have team member"],
             }
 
         ]
@@ -62,6 +62,8 @@ function optionprompt() {
         }
         else if(response.team === "Intern"){
             console.log("hello")
+            internprompt()
+
         }
     }))
 }
@@ -104,3 +106,37 @@ function enginnerprompt(){
         optionprompt();
     }))
 }
+
+// intern prompt
+function internprompt() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "intern",
+            message: "what is the team interns's name?"
+        },
+        {
+            type: "input",
+            name: "iid",
+            message: "What is the team intern's id?"
+        },
+        {
+            type: "input",
+            name: "iemail",
+            message: "What is the team intern's email?"
+        },
+
+        {
+            type: "input",
+            name: "school",
+            message: "What is the intern's school?"
+
+        },
+       
+
+    ]).then(response => {
+        const intern = new Engineer(response.intern, response.iid,response.iemail, response.school)
+        teamMembers.push(intern)
+      
+        optionprompt();
+    })}
