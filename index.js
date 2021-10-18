@@ -179,8 +179,8 @@ function buildteam(){
 
 
 
- fs.writeFile("./dist/index.html", data, (err) => err ? console.error(err) : console.log())
- fs.writeFileSync()
+fs.writeFileSync(__dirname+"./dist/index.html", data, (err) => err ? console.error(err) : console.log())
+
 
 
 }
