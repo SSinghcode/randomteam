@@ -147,7 +147,7 @@ function internprompt() {
 
 
 function buildteam(){
-
+    console.log(teamMembers)
     const data = `
     <!doctype html>
     <html lang="en">
@@ -179,7 +179,7 @@ function buildteam(){
 
 
 
-fs.writeFileSync(__dirname+"./dist/index.html", data, (err) => err ? console.error(err) : console.log())
+fs.writeFileSync(__dirname+"/dist/index.html", data, (err) => err ? console.error(err) : console.log())
 
 
 
@@ -211,9 +211,16 @@ function generateteam(team){
         .join("")
     );
   
+    console.log(valueHolder)
     return valueHolder.join("");
 
-    function generateManager(manager) {
+  
+    }
+
+
+///
+  function generateManager(manager) {
+      console.log(manager)
         return `
         <div class="card team">
         <div class="card-header">
@@ -269,6 +276,3 @@ function generateteam(team){
     
     `;
     }
-}
-
-///
