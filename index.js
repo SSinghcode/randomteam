@@ -34,7 +34,7 @@ function runPrompter() {
 
     ]).then((response) => {
 
-        const manager = new Manager(response.managerName, response.mangerid, response.managerOfficenumber)
+        const manager = new Manager(response.managerName, response.mangerid,response.managerEmail, response.managerOfficenumber)
         teamMembers.push(manager);
         optionprompt();
     }
@@ -104,7 +104,7 @@ function enginnerprompt(){
 
 
     ).then((response => {
-        const engineer = new Engineer(response.engineer, response.eid, response.eemail)
+        const engineer = new Engineer(response.engineer, response.eid,response.eemail, response.egithub)
         teamMembers.push(engineer)
       
         optionprompt();
@@ -139,7 +139,7 @@ function internprompt() {
        
 
     ]).then(response => {
-        const intern = new Engineer(response.intern, response.iid,response.iemail, response.school)
+        const intern = new Intern(response.intern, response.iid,response.iemail, response.school)
         teamMembers.push(intern)
       
         optionprompt();
@@ -162,7 +162,13 @@ function buildteam(){
         <title>Hello, world!</title>
       </head>
       <body>
-      
+      <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 jumbotron mb-3 bg-primary">
+                    <h1 class="text-center">My Team</h1>
+                </div>
+            </div>
+        </div>
      <div>${generateteam(teamMembers)}</div>
     
         <!-- Optional JavaScript -->
@@ -223,7 +229,7 @@ function generateteam(team){
       console.log(manager)
         return `
         <div class="card team">
-        <div class="card-header">
+        <div class="card-header bg-secondary">
             <h2 class="card-title">${manager.getName()}</h2>
             <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
         </div>
@@ -238,10 +244,10 @@ function generateteam(team){
         `;
     }
 
-  function generateEngineer(enginner) {
+  function generateEngineer(engineer) {
         return `
       <div class="card team">
-      <div class="card-header">
+      <div class="card-header bg-secondary ">
           <h2 class="card-title">${engineer.getName()}</h2>
           <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${engineer.getRole()}</h3>
       </div>
@@ -249,7 +255,9 @@ function generateteam(team){
           <ul class="list-group">
               <li class="list-group-item">ID: ${engineer.getId()}</li>
               <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-              <li class="list-group-item">Office number: ${enginner.getOfficeNumber()}</li>
+              <li class="list-group-item">GitHub: ${engineer.getGithub()}</li>
+             
+              
           </ul>
       </div>
   </div>
@@ -261,15 +269,15 @@ function generateteam(team){
   function generateIntern(intern) {
         return `
     <div class="card team">
-    <div class="card-header">
+    <div class="card-header bg-info ">
         <h2 class="card-title">${intern.getName()}</h2>
         <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${intern.getRole()}</h3>
     </div>
     <div class="card-body">
         <ul class="list-group">
             <li class="list-group-item">ID: ${intern.getId()}</li>
-            <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${engineer.getEmail()}</a></li>
-            <li class="list-group-item">Office number: ${intern.getSchool()}</li>
+            <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+            <li class="list-group-item">School: ${intern.getSchool()}</li>
         </ul>
     </div>
 </div>
