@@ -1,4 +1,4 @@
-const Employee = require("../lib/tests/Employee");
+const Employee = require("../lib/Employee");
 
 describe("Employee main Objects", () => {
     it("should create an object when I initialize new Employee", ()=> {

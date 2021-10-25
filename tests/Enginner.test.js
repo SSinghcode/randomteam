@@ -1,7 +1,9 @@
-const Engineer= require(".../Engineer")
-test("it shout set GitHUb account via constructor", () => {
-    const testValue = "GitHubUser";
-    const e = new Engineer("hello", 1, "test@test.com", testValue);
-    expect(e.github).toBe(testValue);
-  });
-  
+const Employee = require("../tests/Engineer");
+
+describe("Engineer main Objects", () => {
+ 
+    it("should give back the Employee role back if I run getRole()", ()=> {
+        const valueObj = new Engineer();
+        expect(valueObj.getRole()).toBe("Employee")
+    })
+  })
